@@ -36,7 +36,10 @@ versions = {
 }
 
 if __name__ == '__main__':
-    with open(sys.argv[1], 'r') as f: # open proC file file
+    if len(sys.argv) < 2:
+        sys.argv.append('proC.json')
+
+    with open(sys.argv[1], 'r') as f: # open proC file
         data = json.load(f) # load json
     versions[data['version']](data)
     
