@@ -2,7 +2,7 @@
 
 A little build system for c projects.
 
-For additional Information visit the wiki
+For additional Information visit the [wiki](https://github.com/lucakrueger/proC/wiki)
 
 ## Usuage
 
