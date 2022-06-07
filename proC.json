@@ -1,0 +1,11 @@
+{
+    "version": 0,
+    "sources": [
+        "./tests/",
+        "./tests/bin/"
+    ],
+    "out": {
+        "path": "./tests/bin/",
+        "name": "test"
+    }
+}
