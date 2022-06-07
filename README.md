@@ -1,6 +1,7 @@
 # proC
 
-A little build system for c projects
+A little build system for c projects.
+
 For additional Information visit the wiki
 
 ## Usuage
