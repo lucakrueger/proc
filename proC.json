@@ -1,11 +1,12 @@
 {
-    "version": 0,
-    "sources": [
-        "./tests/",
-        "./tests/bin/"
-    ],
-    "out": {
-        "path": "./tests/bin/",
-        "name": "test"
-    }
+    "version": 1,
+    "targets": [
+        {
+            "name": "test.dylib",
+            "sources": [
+                "./tests",
+                "./tests/bin"
+            ]
+        }
+    ]
 }
