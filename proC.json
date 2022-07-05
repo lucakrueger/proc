@@ -1,12 +1,18 @@
 {
-    "version": 1,
+    "version": 2,
     "targets": [
         {
-            "name": "test.dylib",
             "sources": [
                 "./tests",
                 "./tests/bin"
-            ]
+            ],
+            "target": {
+                "name": "test",
+                "platform": "win32",
+                "path": "./tests/bin",
+                "type": "shared",
+                "flags": []
+            }
         }
     ]
 }

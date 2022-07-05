@@ -109,9 +109,56 @@ def proc1(data):
     for target in data['targets']:
         process_target(target)
 
+# VERSION 2
+def process_target_v2(data):
+    if 'scripts' in data:
+        run_scripts(data['scripts'])
+
+    paths = data['sources']
+    files = files_from_paths(paths)
+    print("> Compiler: GCC")
+
+    targetdic = {
+        "name": "out",
+        "platform": sys.platform,
+        "path": "./",
+        "type": "exec",
+        "flags": []
+    }
+
+    if 'target' in data:
+        targetdic = data['target']
+
+    flags = []
+    if 'flags' in targetdic:
+        flags = targetdic['flags']
+    
+    if 'platform' in targetdic:
+        if targetdic['platform'] != sys.platform:
+            return
+
+    outtype = "exec"
+    if 'type' in targetdic:
+        outtype = targetdic['type']
+
+    outfile = targetdic['path']
+    if outfile[-1:] != "/":
+        outfile += "/"
+    outfile += data['target']['name']
+
+    gcc = create_gcc(files, outfile, flags, outtype)
+    print("> {gcc}".format(gcc = gcc))
+    os.system(gcc)
+    print("")
+
+def proc_v2(data):
+    for target in data['targets']:
+        process_target_v2(target)
+
 versions = {
     0: proC0,
-    1: proc1
+    1: proc1,
+    2: proc_v2,
 }
 
 if __name__ == '__main__':
